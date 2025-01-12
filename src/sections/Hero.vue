@@ -1,29 +1,46 @@
 <template>
-  <section class="relative" aria-labelledby="hero-title">
+	<section class="hero-section relative h-screen mb-[5.375rem]">
 		<!-- BG -->
-		<div class="relative h-screen overflow-hidden rounded-bl-[50px] rounded-br-[50px]">
-			<img
-				loading="lazy"
-				src="@/assets/BG.png"
-				alt="Hero background"
-				class="object-cover h-screen w-screen"
-			/>
+		<div class="absolute h-screen overflow-hidden rounded-bl-[50px] rounded-br-[50px]">
+			<img loading="lazy" src="@/assets/BG.png" alt="Hero background" class="object-cover h-screen w-screen" />
 			<div data-vbg="https://www.youtube.com/watch?v=8_4JRK4QkqU" class="absolute "></div>
 		</div>
 
 		<!-- Title -->
-    <div id="hero-title" class="
-			absolute top-0 left-0 z-10 flex flex-col justify-center w-full h-full
-		">
-			<img src="@/assets/logo.svg" alt="Logo" class="" width="198" height="88" />
-      <div class="hero-text">WE CREATE <br> AMAZING DIGITAL <br> EXPERIENCES</div>
-    </div>
-  </section>
+		<div id="hero-title" class="flex mt-[11.31rem] h-full relative px-2 overflow-hidden">
+			<!-- Left text -->
+			<div class="flex flex-col items-center gap-[1.53rem] max-w-[4rem] w-full">
+				<div class="left-text">DIGITAL AGENCY</div>
+				<div class="line bg-white"></div>
+			</div>
+
+			<!-- Main text -->
+			<div class="flex flex-col md:ml-[min(7.53vw,9.03rem)]">
+				<InlineSvg :src="logo" class="w-[198px] h-[88px] text-white" />
+				<div class="hero-text mt-[23.27px]">
+					<div class="pl-4">WE CREATE</div>
+					<div class="pl-4">AMAZING</div>
+					<div class="teal-underline red-dot relative pl-4 w-min md:w-max">DIGITAL EXPERIENCES</div>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Bottom salad -->
+		<div class="absolute bottom-0 flex flex-col items-center w-full wiggle-container">
+			<img src="@/assets/salad.svg" alt="Salad" class="w-[4.0625rem] h-[4.0625rem] mb-[0.69rem] wiggle-on-hover cursor-pointer" />
+			<div class="salad-text mb-[1.92rem]">TASTE US NOW!</div>
+			<div class="w-[1px] h-[2.75275rem] bg-white"></div>
+		</div>
+
+	</section>
 </template>
 
 <script setup lang="ts">
 import 'youtube-background';
 import { onMounted } from 'vue';
+import logo from '@/assets/logo.svg';
+import InlineSvg from '../components/InlineSvg.vue';
 
 onMounted(() => {
 	// @ts-expect-error
@@ -32,13 +49,96 @@ onMounted(() => {
 </script>
 
 <style>
+.hero-section::after {
+	content: '';
+	display: block;
+	width: 1px;
+	height: 5.375rem;
+	background-color: #808080;
+	margin: auto;
+}
 
-.hero-text {
+/* left */
+.left-text {
 	color: #FFF;
-	font-size: 2.375rem;
+	font-size: 1rem;
 	font-style: normal;
 	font-weight: 700;
-	line-height: 4.375rem; /* 184.211% */
+	line-height: normal;
+	letter-spacing: 0.13888rem;
+	writing-mode: vertical-lr;
+	transform: rotate(180deg);
+}
+
+.line {
+	width: 0.125rem;
+	height: 7.0625rem;
+}
+
+/* main */
+.hero-text {
+	color: #FFF;
+	font-size: min(2.375rem, 6vw);
+	font-style: normal;
+	font-weight: 700;
+	line-height: 4.375rem;
+	/* 184.211% */
 	letter-spacing: 0.57294rem;
+}
+
+.teal-underline {
+	background-image: linear-gradient(to right, #26C6D0, #26C6D0);
+	background-size: 100% 8px;
+	background-repeat: no-repeat;
+	background-position: 0 70%;
+	/* transition: background-size 0.3s ease-in-out; */
+}
+
+.red-dot::after {
+	content: '';
+	position: absolute;
+	bottom: 1.4rem;
+	right: -1rem;
+	width: 0.625rem;
+	height: 0.625rem;
+	border-radius: 50%;
+	background-color: #EE6C8A;
+}
+
+/* bottom salad */
+.salad-text {
+	color: #FFF;
+	font-feature-settings: 'liga' off, 'clig' off;
+	font-size: 0.875rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	letter-spacing: 0.125rem;
+}
+
+@keyframes wiggle {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	25% {
+		transform: rotate(5deg);
+	}
+
+	50% {
+		transform: rotate(0deg);
+	}
+
+	75% {
+		transform: rotate(-5deg);
+	}
+
+	100% {
+		transform: rotate(0deg);
+	}
+}
+
+.wiggle-on-hover:hover {
+	animation: wiggle 0.5s ease-in-out;
 }
 </style>
