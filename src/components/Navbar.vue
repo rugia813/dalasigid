@@ -1,5 +1,5 @@
 <template>
-	<nav class="h-[6.25rem]" :class="{ 'navbar-scroll': hasScrolled, 'navbar-top': !hasScrolled }">
+	<nav class="h-[6.25rem]" :class="{ 'navbar-scroll': hasScrolled, 'navbar-top': !hasScrolled, 'menu-open': isMenuOpen }">
 		<div class="navbar-container">
 			<!-- logo -->
 			<div class="logo w-[7.5rem] h-[3.33331rem]">
@@ -7,11 +7,11 @@
 			</div>
 
 			<!-- right -->
-			<div class="flex items-center gap-md md:gap-[2.75rem]">
+			<div class="flex items-center gap-4 md:gap-[2.75rem]">
 				<!-- start button -->
 				<button class="start-button text-white hover:brightness-110">START YOUR PROJECT</button>
 				<!-- menu button -->
-				<button class="menu-button" :class="{ 'menu-open': isMenuOpen }" @click="toggleMenu">
+				<button class="menu-button" ref="menuBtn" :class="{ 'menu-open': isMenuOpen }" @click="toggleMenu">
 					<span></span>
 					<span></span>
 					<span></span>
@@ -19,6 +19,8 @@
 			</div>
 		</div>
 	</nav>
+
+	<Menu v-model:show="isMenuOpen" :menu-btn="menuBtn" />
 </template>
 
 
@@ -26,9 +28,11 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 import InlineSvg from './InlineSvg.vue';
 import logo from '@/assets/logo.svg';
+import Menu from './Menu.vue';
 
 const hasScrolled = ref(false);
 const isMenuOpen = ref(false);
+const menuBtn = ref()
 
 const handleScroll = () => {
 	hasScrolled.value = window.scrollY > 0;
@@ -74,14 +78,25 @@ nav {
 		padding: 0.2rem 0.6rem;
 	}
 	.navbar-scroll {
-		padding: 1.56rem 2.5rem 1.35rem 5rem;
+		padding: 0.2rem 0.6rem;
 	}
+}
+
+/* Menu open */
+.menu-open {
+	background-color: transparent;
+	box-shadow: none;
+}
+
+.menu-open .start-button {
+	opacity: 0;
 }
 
 .navbar-container {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	height: 100%;
 	/* max-width: 90rem; */
 	/* margin: 0 auto; */
 	/* padding: 10px 20px; */
@@ -94,9 +109,11 @@ nav {
 	transform: scale(0.5)
 }
 
-.navbar-scroll .logo {
+.navbar-scroll .logo,
+.menu-open .logo {
 	color: #26C6D0;
-	transform: scale(1)
+	transform: scale(1);
+	opacity: 1 !important;
 }
 
 .navbar-top .logo {
@@ -157,6 +174,6 @@ nav {
 	height: 2.56413rem;
 	border-radius: 1.5rem;
 	background: linear-gradient(90deg, #4EE5EA 3.94%, #26D0A8 94.73%);
-	transition: filter 0.3s ease;
+	transition: all 0.3s ease;
 }
 </style>
