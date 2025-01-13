@@ -3,11 +3,11 @@
 		<!-- BG -->
 		<div class="absolute h-screen overflow-hidden rounded-bl-[50px] rounded-br-[50px]">
 			<img loading="lazy" src="@/assets/BG.png" alt="Hero background" class="object-cover h-screen w-screen" />
-			<div data-vbg="https://www.youtube.com/watch?v=8_4JRK4QkqU" class="absolute "></div>
+			<!-- <div data-vbg="https://www.youtube.com/watch?v=8_4JRK4QkqU" class="absolute "></div> -->
 		</div>
 
 		<!-- Title -->
-		<div id="hero-title" class="flex mt-[11.31rem] h-full relative px-2 overflow-hidden">
+		<div id="hero-title" class="flex pt-[11.31rem] h-full relative px-2 overflow-hidden">
 			<!-- Left text -->
 			<div class="flex flex-col items-center gap-[1.53rem] max-w-[4rem] w-full">
 				<div class="left-text">DIGITAL AGENCY</div>

@@ -7,7 +7,7 @@
 			</div>
 
 			<!-- right -->
-			<div class="flex items-center gap-[2.75rem]">
+			<div class="flex items-center gap-md md:gap-[2.75rem]">
 				<!-- start button -->
 				<button class="start-button text-white hover:brightness-110">START YOUR PROJECT</button>
 				<!-- menu button -->
@@ -67,6 +67,15 @@ nav {
 	background-color: rgba(255, 255, 255, 0.90);
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 	padding: 1.56rem 3.75rem 1.35rem 5rem;
+}
+
+@media (max-width: 768px) {
+	.navbar-top {
+		padding: 0.2rem 0.6rem;
+	}
+	.navbar-scroll {
+		padding: 1.56rem 2.5rem 1.35rem 5rem;
+	}
 }
 
 .navbar-container {
