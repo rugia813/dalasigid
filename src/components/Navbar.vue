@@ -105,8 +105,9 @@ nav {
 /* logo */
 .logo {
 	color: white;
-	transition: all 0.3s ease-out;
-	transform: scale(0.5)
+	transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	transform: scale(0.5);
+	transition-delay: 150ms;
 }
 
 .navbar-scroll .logo,
@@ -170,10 +171,16 @@ nav {
 
 /* Start Button */
 .start-button {
-	width: 12.5rem;
 	height: 2.56413rem;
 	border-radius: 1.5rem;
+	padding: .5rem;
+	text-wrap: nowrap;
 	background: linear-gradient(90deg, #4EE5EA 3.94%, #26D0A8 94.73%);
 	transition: all 0.3s ease;
+}
+@media (max-width: 768px) {
+	.start-button {
+		font-size: 0.8rem;
+	}
 }
 </style>

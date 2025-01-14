@@ -8,22 +8,22 @@
 				<h2>ABOUT US</h2>
 			</div>
 			<div class="menu-item careers">
-				<img src="@/assets/menu/icons/Group 25.png"  />
+				<img src="@/assets/menu/icons/Group 43.png"  />
 				<p>Be cool with us</p>
 				<h2>CAREERS</h2>
 			</div>
 			<div class="menu-item services">
-				<img src="@/assets/menu/icons/Group 28.png"  />
+				<img src="@/assets/menu/icons/Group 25.png"  />
 				<p>Areas of expertise</p>
 				<h2>SERVICES</h2>
 			</div>
 			<div class="menu-item works">
-				<img src="@/assets/menu/icons/Group 43.png"  />
+				<img src="@/assets/menu/icons/Group 53.png"  />
 				<p>Case studies</p>
 				<h2>WORKS</h2>
 			</div>
 			<div class="menu-item insights">
-				<img src="@/assets/menu/icons/Group 53.png"  />
+				<img src="@/assets/menu/icons/Group 28.png"  />
 				<p>Our strategies</p>
 				<h2>INSIGHTS</h2>
 			</div>
@@ -50,7 +50,7 @@ const circleStyle = ref({
 });
 
 const menuMaskStyle = computed(() => {
-	const size = show.value ? "3000px" : "0px";
+	const size = show.value ? "300vw" : "0px";
 	return {
 		clipPath: `circle(${size} at ${circleStyle.value.left} ${circleStyle.value.top})`,
 		WebkitClipPath: `circle(${size} at ${circleStyle.value.left} ${circleStyle.value.top})`,
@@ -73,20 +73,6 @@ watch(show, toggleMenu)
 
 
 <style scoped>
-/* Navbar styling */
-.navbar {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 1rem 2rem;
-	background: #2b2b2b;
-	color: #fff;
-}
-
-.logo {
-	font-size: 1.5rem;
-	font-weight: bold;
-}
 
 .menu-button {
 	font-size: 1.5rem;
@@ -115,12 +101,12 @@ watch(show, toggleMenu)
 	justify-content: center;
 	align-items: center;
 
-	transform: translateY(-100%);
+	/* transform: translateY(-100%); */
 	transition: transform 0.3s ease-in-out;
 }
 
 .fullscreen-menu.active {
-	transform: translateY(0);
+	/* transform: translateY(0); */
 }
 
 .close-button {
@@ -141,15 +127,22 @@ watch(show, toggleMenu)
 	align-items: center;
 	gap: 2rem;
 	max-width: 80%;
+	height: max-content;
 }
 
 .menu-item {
+	@apply hover:brightness-90 transition-all duration-300;
 	background: rgba(255, 255, 255, 0.1);
 	border-radius: 1.875rem;
 	padding: 1.5rem;
 	width: 200px;
 	text-align: center;
 	cursor: pointer;
+	max-width: 100%;
+}
+
+.menu-item:hover img {
+	animation: wiggle 0.5s ease-in-out;
 }
 
 .menu-item h2 {
@@ -198,6 +191,17 @@ watch(show, toggleMenu)
 @media (max-width: 768px) {
 	.menu-content {
 		flex-direction: column;
+		justify-content: end;
+		height: 100vh;
+		padding-bottom: .5rem;;
+	}
+	.menu-item {
+		display: flex;
+		height: 10%;
+		padding: .5rem;
+	}
+	.menu-item img {
+		transform: scale(.8);
 	}
 }
 </style>
