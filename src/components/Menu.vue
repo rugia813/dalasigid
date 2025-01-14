@@ -69,31 +69,6 @@ const toggleMenu = () => {
 	}
 };
 watch(show, toggleMenu)
-
-// Lock scroll
-const menuContainer = ref();
-const preventBodyScroll = (event: any) => {
-	if (menuContainer.value && menuContainer.value.contains(event.target)) {
-		// Allow scrolling within the menu but prevent propagation to the body
-		const { scrollHeight, clientHeight, scrollTop } = menuContainer.value;
-
-		// Block scroll propagation if the menu is at its scroll boundaries
-		if (
-			(event.deltaY < 0 && scrollTop === 0) || // Prevent scrolling up at the top
-			(event.deltaY > 0 && scrollTop + clientHeight >= scrollHeight) // Prevent scrolling down at the bottom
-		) {
-			event.preventDefault();
-		}
-	}
-};
-
-onMounted(() => {
-	document.addEventListener("wheel", preventBodyScroll, { passive: false });
-});
-
-onUnmounted(() => {
-	document.removeEventListener("wheel", preventBodyScroll);
-});
 </script>
 
 
