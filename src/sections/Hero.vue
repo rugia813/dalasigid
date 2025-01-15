@@ -3,7 +3,7 @@
 		<!-- BG -->
 		<div class="absolute h-screen overflow-hidden rounded-bl-[50px] rounded-br-[50px]">
 			<img loading="lazy" src="@/assets/BG.png" alt="Hero background" class="object-cover h-screen w-screen" />
-			<!-- <div data-vbg="https://www.youtube.com/watch?v=8_4JRK4QkqU" class="absolute "></div> -->
+			<div data-vbg="https://www.youtube.com/watch?v=8_4JRK4QkqU" class="absolute "></div>
 		</div>
 
 		<!-- Title -->
