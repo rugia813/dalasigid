@@ -2,34 +2,52 @@
 	<!-- Fullscreen Menu -->
 	<div class="fullscreen-menu" ref="menuContainer" :class="{ active: show }" :style="menuMaskStyle">
 		<div class="menu-content">
-			<div class="menu-item about">
-				<img src="@/assets/menu/icons/Group 21.png" />
-				<p>Empowering brands</p>
-				<h2>ABOUT US</h2>
+			<div class="menu-col">
+				<div class="menu-item about">
+					<img src="@/assets/menu/icons/Group 21.png" />
+					<div class="text-wrapper">
+						<p>Empowering brands</p>
+						<h2 class="red-dot">ABOUT US</h2>
+					</div>
+				</div>
+				<div class="menu-item works">
+					<img src="@/assets/menu/icons/tomato.svg" />
+					<div class="text-wrapper">
+						<p>Case studies</p>
+						<h2 class="red-dot">WORKS</h2>
+					</div>
+				</div>
 			</div>
-			<div class="menu-item careers">
-				<img src="@/assets/menu/icons/Group 43.png"  />
-				<p>Be cool with us</p>
-				<h2>CAREERS</h2>
+			<div class="menu-col">
+				<div class="menu-item careers">
+					<img src="@/assets/menu/icons/Group 43.png" />
+					<div class="text-wrapper">
+						<p>Be cool with us</p>
+						<h2 class="red-dot">CAREERS</h2>
+					</div>
+				</div>
+				<div class="menu-item insights">
+					<img src="@/assets/menu/icons/Group 28.png" />
+					<div class="text-wrapper">
+						<p>Our strategies</p>
+						<h2 class="red-dot">INSIGHTS</h2>
+					</div>
+				</div>
 			</div>
-			<div class="menu-item services">
-				<img src="@/assets/menu/icons/Group 25.png"  />
-				<p>Areas of expertise</p>
-				<h2>SERVICES</h2>
-			</div>
-			<div class="menu-item works">
-				<img src="@/assets/menu/icons/Group 53.png"  />
-				<p>Case studies</p>
-				<h2>WORKS</h2>
-			</div>
-			<div class="menu-item insights">
-				<img src="@/assets/menu/icons/Group 28.png"  />
-				<p>Our strategies</p>
-				<h2>INSIGHTS</h2>
-			</div>
-			<div class="menu-item contact">
-				<p>Start your journey with us</p>
-				<h2>CONTACT</h2>
+			<div class="menu-col">
+				<div class="menu-item services">
+					<img src="@/assets/menu/icons/Group 25.png" />
+					<div class="text-wrapper">
+						<p>Areas of expertise</p>
+						<h2 class="red-dot">SERVICES</h2>
+					</div>
+				</div>
+				<div class="menu-item contact">
+					<div class="text-wrapper">
+						<p class="text-black">Start your journey with us</p>
+						<h2 class="red-dot text-[#26D0A8]">CONTACT</h2>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -73,7 +91,6 @@ watch(show, toggleMenu)
 
 
 <style scoped>
-
 .menu-button {
 	font-size: 1.5rem;
 	background: none;
@@ -122,7 +139,6 @@ watch(show, toggleMenu)
 
 .menu-content {
 	display: flex;
-	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
 	gap: 2rem;
@@ -130,15 +146,24 @@ watch(show, toggleMenu)
 	height: max-content;
 }
 
+.menu-col {
+	@apply flex flex-col gap-8;
+	max-width: 100%;
+}
+
 .menu-item {
-	@apply hover:brightness-90 transition-all duration-300;
+	@apply flex hover:brightness-90 transition-all duration-300;
 	background: rgba(255, 255, 255, 0.1);
 	border-radius: 1.875rem;
 	padding: 1.5rem;
-	width: 200px;
-	text-align: center;
 	cursor: pointer;
 	max-width: 100%;
+	flex: auto;
+	flex-shrink: 1;
+}
+
+.menu-item img {
+	height: min-content;
 }
 
 .menu-item:hover img {
@@ -146,41 +171,63 @@ watch(show, toggleMenu)
 }
 
 .menu-item h2 {
-	margin: 0.5rem 0;
-	font-size: 1.2rem;
+	font-size: 2rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	letter-spacing: 0.22725rem;
 }
 
 .menu-item p {
-	font-size: 0.9rem;
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	letter-spacing: 0.1125rem;
+}
+
+.text-wrapper {
+	@apply flex flex-col relative;
 }
 
 .about {
+	@apply justify-center items-center gap-7;
 	width: 23.75rem;
 	height: 13.125rem;
 	background: url("@/assets/menu/bgs/video-thumbnail.png") #26C6D0 0px 0px / 100% 100% no-repeat;
 }
 
 .careers {
+	@apply justify-center content-end gap-7 flex-wrap pb-14;
 	width: 18.125rem;
 	height: 26.875rem;
 	background: url("@/assets/menu/bgs/DigiSalad-Promotional-Video-Storyboard-v1-14.png") #E6A94E 0px 0px / 100% 100% no-repeat;
 }
+
 .services {
+	@apply justify-end items-start content-end gap-4 flex-col pb-14;
 	width: 23.75rem;
 	height: 20rem;
 	background: url("@/assets/menu/bgs/DigiSalad-Promotional-Video-Storyboard-v1-24.png") #585880 0px 0px / 100% 100% no-repeat;
 }
+
 .works {
+	@apply justify-start items-end gap-4 pb-14;
+	--dot-color: #26C6D0;
 	width: 23.75rem;
 	height: 20rem;
 	background: url("@/assets/menu/bgs/ChampionREIT-Showcase.png") #EE6C8A 0px 0px / 100% 100% no-repeat;
 }
+
 .insights {
+	@apply justify-end items-start content-end gap-4 flex-col pb-14 pl-11;
 	width: 18.125rem;
 	height: 17.625rem;
 	background: url("@/assets/menu/bgs/ChampionREIT-Showcase.png") #26D0A8 0px 0px / 100% 100% no-repeat;
 }
+
 .contact {
+	@apply justify-start items-center gap-7 pl-14;
 	width: 23.75rem;
 	height: 13.125rem;
 	opacity: 0.95;
@@ -188,18 +235,28 @@ watch(show, toggleMenu)
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
 	.menu-content {
+		margin-top: 3rem;
 		flex-direction: column;
-		justify-content: end;
+		flex-wrap: wrap;
+		/* justify-content: end; */
 		height: 100vh;
-		padding-bottom: .5rem;;
+		width: 100%;
+		padding-bottom: .5rem;
 	}
+
+	.menu-col {
+		@apply w-full items-center;
+		max-height: 27%;
+	}
+
 	.menu-item {
-		display: flex;
-		height: 10%;
+		@apply flex flex-row w-full flex-auto justify-center items-center content-center;
+		max-height: 50%;
 		padding: .5rem;
 	}
+
 	.menu-item img {
 		transform: scale(.8);
 	}

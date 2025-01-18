@@ -1,12 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
 body {
-	font-family: "Proxima Nova", "Montserrat", arial;
+	font-family: "proxima-nova", arial;
 	background-color: #F2F2F2;
 }
 
@@ -36,4 +34,15 @@ body {
 
 .wiggle-on-hover:hover {
 	animation: wiggle 0.5s ease-in-out;
+}
+
+.red-dot::after {
+	content: '';
+	position: absolute;
+	bottom: 1.4rem;
+	right: -1rem;
+	width: 0.625rem;
+	height: 0.625rem;
+	border-radius: 50%;
+	background-color: var(--dot-color, #EE6C8A);
 }

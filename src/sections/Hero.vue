@@ -94,17 +94,6 @@ onMounted(() => {
 	/* transition: background-size 0.3s ease-in-out; */
 }
 
-.red-dot::after {
-	content: '';
-	position: absolute;
-	bottom: 1.4rem;
-	right: -1rem;
-	width: 0.625rem;
-	height: 0.625rem;
-	border-radius: 50%;
-	background-color: #EE6C8A;
-}
-
 /* bottom salad */
 .salad-text {
 	color: #FFF;

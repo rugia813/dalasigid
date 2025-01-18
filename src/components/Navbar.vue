@@ -177,6 +177,13 @@ nav {
 	text-wrap: nowrap;
 	background: linear-gradient(90deg, #4EE5EA 3.94%, #26D0A8 94.73%);
 	transition: all 0.3s ease;
+
+	text-align: center;
+	font-size: 0.875rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	letter-spacing: 0.07144rem;
 }
 @media (max-width: 768px) {
 	.start-button {
