@@ -4,32 +4,50 @@
       <h2>ABOUT DIGISALAD</h2>
       <div class="flex shrink-0 self-start mt-4 w-2.5 h-2.5 bg-rose-400 rounded-full"></div>
     </div>
-    <img
-      loading="lazy"
-      src="https://cdn.builder.io/api/v1/image/assets/0ccfe98b796a46c7b321e819adeef68c/2d8186f3a180855bca0dbc6b21fd2226c8400d8e4f17f78180e8e8c34d3b33ce?apiKey=0ccfe98b796a46c7b321e819adeef68c&"
-      alt="Decorative line"
-      class="object-contain mt-2 ml-3.5 max-w-full aspect-[28.57] w-[369px]"
-    />
-    <img
-      loading="lazy"
-      src="https://cdn.builder.io/api/v1/image/assets/0ccfe98b796a46c7b321e819adeef68c/23b1bb16cc23bd39376c818e78553ef679b2a256cb4c0324dd267b9a0dc107bc?apiKey=0ccfe98b796a46c7b321e819adeef68c&"
-      alt="About section illustration"
-      class="object-contain mt-16 max-w-full aspect-[1.76] w-[960px] max-md:mt-10"
-    />
-    <p class="mt-8 text-base tracking-wider leading-7 text-center text-neutral-800 max-md:max-w-full">
-      Cras quis nulla commodo, aliquam lectus sed, blandit augue. Cras ullamcorper bibendum bibendum. Duis tincidunt urna non pretium porta. Nam condimentum vitae ligula vel ornare. Phasellus at semper turpis. Nunc eu tellus tortor. Etiam at condimentum nisl, vitae sagittis orci. Donec id dignissim nunc. Donec elit ante, eleifend a dolor et, venenatis facilisis dolor. In feugiat orci odio, sed lacinia sem elementum quis. Aliquam consectetur, eros et vulputate euismod, nunc leo tempor lacus, ac rhoncus neque eros nec lacus. Cras lobortis molestie faucibus.
-    </p>
-    <button
-      class="
-        flex gap-3.5 items-center
-        px-6 py-9 mt-14 max-w-full text-base font-bold text-white bg-[#26C6D0] rounded-sm
-        w-[223px] max-md:px-5 max-md:mt-10
-      "
-      aria-label="View more about DigiSalad"
-    >
-      <span class="grow">VIEW MORE</span>
-      <div class="border border-white w-[54px]" />
-    </button>
+    <div class="flex mt-2">
+      <div class="underline w-[191px] h-[13px]" />
+      <div class="underline w-[191px] h-[13px] -ml-3" />
+    </div>
+    <div class="min-w-[69.93%] max-w-[1007px] w-full px-2 mt-16 flex items-center flex-col">
+      <iframe
+        src="https://www.youtube.com/embed/IeIRJ9jZ5Ro"
+        width="100%" height="544"
+        title="" frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+      >
+        <br>Powered by <a href="https://youtubeembedcode.com">embed youtube video</a> and <a href="https://casinomga.se/">mga casino</a>
+      </iframe>
+      <p class="
+        mt-8
+        text-base tracking-wider leading-7 text-center text-neutral-800 text-wrap
+        max-md:max-w-full
+      ">
+        Cras quis nulla commodo, aliquam lectus sed, blandit augue.
+        Cras ullamcorper bibendum bibendum.
+        Duis tincidunt urna non pretium porta.
+        Nam condimentum vitae ligula vel ornare.
+        Phasellus at semper turpis. Nunc eu tellus tortor.
+        Etiam at condimentum nisl, vitae sagittis orci. Donec id dignissim nunc.
+        Donec elit ante, eleifend a dolor et, venenatis facilisis dolor.
+        In feugiat orci odio, sed lacinia sem elementum quis. Aliquam consectetur, eros et vulputate euismod, nunc leo tempor lacus, ac rhoncus neque eros nec lacus.
+        Cras lobortis molestie faucibus.
+      </p>
+      <button
+        class="
+          flex gap-3.5 items-center
+          px-6 py-9 mt-14 max-w-full w-[223px]
+          text-base font-bold text-white
+          bg-[#26C6D0] rounded-sm hover:bg-[#26C6D0]/80
+          max-md:px-5 max-md:mt-10
+          transition-all duration-300
+        "
+        aria-label="View more about DigiSalad"
+      >
+        <span class="grow">VIEW MORE</span>
+        <div class="border border-white w-[54px]" />
+      </button>
+    </div>
   </section>
 </template>
 

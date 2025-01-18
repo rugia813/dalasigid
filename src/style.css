@@ -46,3 +46,10 @@ body {
 	border-radius: 50%;
 	background-color: var(--dot-color, #EE6C8A);
 }
+
+.underline {
+	background-image: url(@/assets/underline.svg);
+	background-repeat: repeat;
+	/* width: 100%; */
+	height: 13px;
+}
