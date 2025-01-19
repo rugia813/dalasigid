@@ -7,9 +7,9 @@
 		</div>
 
 		<!-- Title -->
-		<div id="hero-title" class="flex pt-[11.31rem] h-full relative px-2 overflow-hidden">
+		<div id="hero-title" class="max-w-[1440px] mx-auto flex pt-[11.31rem] h-full relative px-2 overflow-hidden">
 			<!-- Left text -->
-			<div class="flex flex-col items-center gap-[1.53rem] max-w-[4rem] w-full">
+			<div class="flex flex-col items-center gap-[1.53rem] max-w-[4rem] w-full mt-16">
 				<div class="left-text">DIGITAL AGENCY</div>
 				<div class="line bg-white"></div>
 			</div>

@@ -1,5 +1,5 @@
 <template>
-  <section class="flex overflow-hidden flex-col items-center pb-24 bg-zinc-100">
+  <section class="flex overflow-hidden flex-col items-center pb-36 bg-zinc-100">
     <div class="flex gap-6 mt-10 ml-4 max-w-full text-3xl font-bold text-neutral-800 tracking-[3.64px]">
       <h2>ABOUT DIGISALAD</h2>
       <div class="flex shrink-0 self-start mt-4 w-2.5 h-2.5 bg-rose-400 rounded-full"></div>
@@ -8,7 +8,7 @@
       <div class="underline w-[191px] h-[13px]" />
       <div class="underline w-[191px] h-[13px] -ml-3" />
     </div>
-    <div class="min-w-[69.93%] max-w-[1007px] w-full px-2 mt-16 flex items-center flex-col">
+    <div class="max-w-[60rem] w-full px-2 mt-16 flex items-center flex-col">
       <iframe
         src="https://www.youtube.com/embed/IeIRJ9jZ5Ro"
         width="100%" height="544"
@@ -16,7 +16,6 @@
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
       >
-        <br>Powered by <a href="https://youtubeembedcode.com">embed youtube video</a> and <a href="https://casinomga.se/">mga casino</a>
       </iframe>
       <p class="
         mt-8

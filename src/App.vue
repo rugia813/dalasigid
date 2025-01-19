@@ -3,10 +3,18 @@
   <div class="flex flex-col">
     <HeroSection />
     <AboutSection />
-    <AwardsSection />
+    <div class="relative lg:h-[12rem]">
+      <AwardsSection
+        class="
+          lg:w-[calc(100%-6.13rem)] w-full lg:h-[27rem]
+          lg:absolute top-[-50%] right-0
+        "
+      />
+    </div>
     <IngredientsSection />
-    <TeamSection />
-    <BrandExperienceSection />
+    <!-- <TeamSection />
+    <BrandExperienceSection /> -->
+    <Showcase />
   </div>
 </template>
 
@@ -17,6 +25,7 @@ import AwardsSection from './sections/Award.vue'
 import IngredientsSection from './sections/Ingredient.vue'
 import TeamSection from './sections/Team.vue'
 import BrandExperienceSection from './sections/Brand.vue'
+import Showcase from './sections/Showcase.vue'
 import Navbar from './components/Navbar.vue'
 
 </script>

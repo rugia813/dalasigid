@@ -8,7 +8,42 @@ body {
 	background-color: #F2F2F2;
 }
 
+h2 {
+	font-size: 1.75rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	letter-spacing: 0.22725rem;
+}
 
+/* H3 */
+h3 {
+	font-size: 1.75rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	letter-spacing: 0.22725rem;
+}
+
+/* H4 */
+h4 {
+	font-size: 1.25rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	letter-spacing: 0.125rem;
+	text-transform: uppercase;
+}
+
+/* Caption */
+.caption {
+	font-size: 1.125rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	letter-spacing: 0.125rem;
+	text-transform: uppercase;
+}
 /* wiggle */
 @keyframes wiggle {
 	0% {
@@ -49,6 +84,13 @@ body {
 
 .underline {
 	background-image: url(@/assets/underline.svg);
+	background-repeat: repeat;
+	/* width: 100%; */
+	height: 13px;
+}
+
+.underline2 {
+	background-image: url(@/assets/underline2.svg);
 	background-repeat: repeat;
 	/* width: 100%; */
 	height: 13px;

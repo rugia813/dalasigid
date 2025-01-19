@@ -1,12 +1,13 @@
 <template>
-  <div class="flex flex-col mt-8 w-full max-md:mt-10 max-md:max-w-full">
-    <div class="grid grid-cols-2 gap-5 max-md:grid-cols-1">
+  <div class="flex flex-col mt-8 w-full max-md:mt-10 max-w-[566px]">
+    <div class="grid grid-cols-2 gap-5 max-lg:grid-cols-1">
       <template v-for="(award, index) in awards" :key="index">
         <img
           loading="lazy"
           src="@/assets/award.png"
           :alt="award.title"
-          class="object-contain w-full aspect-[2.62]"
+          width="283" height="108"
+          class="object-contain aspect-[2.62]"
         />
       </template>
     </div>

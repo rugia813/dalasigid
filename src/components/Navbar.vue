@@ -97,8 +97,8 @@ nav {
 	justify-content: space-between;
 	align-items: center;
 	height: 100%;
-	/* max-width: 90rem; */
-	/* margin: 0 auto; */
+	max-width: 1440px;
+	margin: 0 auto;
 	/* padding: 10px 20px; */
 }
 
@@ -139,7 +139,7 @@ nav {
 	display: block;
 	height: 3px;
 	width: 100%;
-	background-color: #585880;
+	background-color: #fff;
 	border-radius: 2px;
 	transition: all 0.3s ease;
 }
@@ -173,7 +173,7 @@ nav {
 .start-button {
 	height: 2.56413rem;
 	border-radius: 1.5rem;
-	padding: .5rem;
+	padding: .5rem .9rem;
 	text-wrap: nowrap;
 	background: linear-gradient(90deg, #4EE5EA 3.94%, #26D0A8 94.73%);
 	transition: all 0.3s ease;

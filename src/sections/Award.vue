@@ -1,5 +1,5 @@
 <template>
-  <section class="z-10 self-end px-20 py-20 mt-16 max-w-full bg-white rounded-none w-[1342px] max-md:px-5 max-md:mt-10" aria-labelledby="awards-title">
+  <section class="z-10 self-end px-16 py-16 mt-16 max-w-full bg-white lg:rounded-[40px] w-[1342px] max-md:px-5 max-md:mt-10" aria-labelledby="awards-title">
     <div class="flex gap-5 max-md:flex-col">
       <div class="flex flex-col w-2/5 max-md:ml-0 max-md:w-full">
         <div class="flex flex-col items-start w-full text-neutral-800 max-md:mt-10">
@@ -7,12 +7,8 @@
             <h2 id="awards-title">AWARDS</h2>
             <div class="flex shrink-0 self-start mt-4 w-2.5 h-2.5 bg-rose-400 rounded-full" aria-hidden="true"></div>
           </div>
-          <img
-            loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/0ccfe98b796a46c7b321e819adeef68c/3e3d986f74c04639c1db22f3f5ea2db226bc33a38adddc6a7f0f0b1bb7114210?apiKey=0ccfe98b796a46c7b321e819adeef68c&"
-            alt=""
-            class="object-contain mt-2 max-w-full aspect-[14.71] w-[191px]"
-            aria-hidden="true"
+          <div
+            class="underline mt-2 max-w-full aspect-[14.71] w-[191px]"
           />
           <p class="self-stretch mt-8 text-base tracking-wider leading-7">
             Cras quis nulla commodo, aliquam lectus sed, blandit augue. Cras ullamcorper bibendum bibendum. Duis tincidunt urna non pretium porta. Nam condimentum vitae ligula vel ornare. Phasellus at semper turpis. Nunc eu tellus tortor. Etiam at condimentum nisl, vitae sagittis orci. Donec id dignissim nunc.
