@@ -1,5 +1,5 @@
 <template>
-  <section class="z-10 self-end px-16 py-16 mt-16 max-w-full bg-white lg:rounded-[40px] w-[1342px] max-md:px-5 max-md:mt-10" aria-labelledby="awards-title">
+  <section class="z-10 self-end px-16 py-16 mt-16 max-w-full bg-white lg:rounded-[40px] !rounded-tr-none w-[1342px] max-md:px-5 max-md:mt-10" aria-labelledby="awards-title">
     <div class="flex gap-5 max-md:flex-col">
       <div class="flex flex-col w-2/5 max-md:ml-0 max-md:w-full">
         <div class="flex flex-col items-start w-full text-neutral-800 max-md:mt-10">

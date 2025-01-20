@@ -1,29 +1,31 @@
 <template>
   <section
-    class="flex flex-col self-center mt-20 w-full max-w-[1040px] text-neutral-800"
+    class="flex flex-col self-center mt-12 lg:mt-60 mb-32 w-full max-w-[1040px] text-neutral-800"
     aria-labelledby="brand-title"
   >
-    <div class="flex gap-6 self-center max-w-full text-3xl font-bold tracking-[3.64px] w-[446px]">
+    <div class="flex gap-6 self-center max-md:w-min text-3xl font-bold tracking-[3.64px] max-w-[80%]">
       <h2 id="brand-title">OUR BRAND EXPERIENCE</h2>
-      <div
-        class="flex shrink-0 self-start mt-4 w-2.5 h-2.5 bg-rose-400 rounded-full"
-        aria-hidden="true"
-      ></div>
+      <div class="flex shrink-0 self-start mt-4 w-2.5 h-2.5 bg-rose-400 rounded-full"></div>
+    </div>
+    <div class="flex mt-2 mx-auto max-w-[80%]">
+      <div class="underline w-[191px] h-[13px]" />
+      <div class="underline w-[191px] h-[13px] -ml-3" />
+      <div class="underline w-[191px] h-[13px] -ml-3" />
     </div>
 
-    <!-- <img
-      src="/images/brand-decoration.svg"
-      alt=""
-      loading="lazy"
-      class="object-contain self-center mt-2 max-w-full aspect-[38.46] w-[495px]"
-      aria-hidden="true"
-    /> -->
 
     <p class="mx-6 mt-14 text-base tracking-wider leading-6 text-center">
       {{ description }}
     </p>
 
-    <BrandGrid :brands="brands" />
+    <!-- <BrandGrid :brands="brands" /> -->
+    <img
+      src="@/assets/brands.png"
+      alt=""
+      loading="lazy"
+      class="object-contain self-center mt-2"
+      aria-hidden="true"
+    />
   </section>
 </template>
 

@@ -3,7 +3,7 @@
     class="
       flex flex-col justify-center items-center self-stretch
       px-20 pb-96 pt-80 w-full
-      bg-[#26C6D0] lg:rounded-t-[40px]
+      bg-[#26C6D0] lg:rounded-t-[50px] lg:rounded-br-[50px]
       max-lg:px-5 max-lg:py-24
     "
     aria-labelledby="ingredients-title"

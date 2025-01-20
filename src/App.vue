@@ -12,8 +12,15 @@
       />
     </div>
     <IngredientsSection />
-    <!-- <TeamSection />
-    <BrandExperienceSection /> -->
+    <div class="relative lg:h-[12rem]">
+      <TeamSection
+        class="
+          lg:w-[calc(100%-6.13rem)] w-full lg:h-[36rem]
+          lg:absolute top-[-180%] left-0
+        "
+      />
+    </div>
+    <BrandExperienceSection />
     <Showcase />
   </div>
 </template>

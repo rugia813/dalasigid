@@ -1,8 +1,8 @@
 <template>
-  <section class="showcase-section relative px-16 py-24 rounded-b-[60px]">
+  <section class="showcase-section relative lg:px-16 py-24 rounded-b-[60px]">
     <div class="carousel-wrapper relative flex items-center justify-center max-w-[1440px] w-full m-auto overflow-hidden">
       <!-- Left Button -->
-      <button @click="prevSlide" class="control-button left-button"><</button>
+      <button @click="prevSlide" class="control-button left-button z-10"><</button>
 
       <!-- Slides -->
       <div
@@ -12,11 +12,11 @@
         <div
           v-for="(slide, index) in slides"
           :key="index"
-          class="carousel-slide flex-shrink-0 w-full px-6"
+          class="carousel-slide max-lg:flex-col flex-shrink-0 w-full px-6"
         >
           <!-- image -->
           <div class="slide-content bg-white shadow-lg rounded-[30px] overflow-hidden relative">
-            <div class="slide-images relative w-[33.75rem] h-[33.75rem] bg-cover" :style="`background: url(${slide.image})`">
+            <div class="slide-images relative max-lg:w-screen w-[33.75rem] h-[33.75rem] bg-cover" :style="`background: url(${slide.image})`">
               <!-- <img
                 :src="slide.image"
                 :alt="slide.alt"
@@ -25,7 +25,7 @@
             </div>
           </div>
           <!-- text -->
-          <div class="highlighted-showcase ml-10">
+          <div class="highlighted-showcase lg:ml-10 max-lg:mt-6">
             <div class="text-highlight">HIGHLIGHTED SHOWCASE</div>
             <p class="text-title teal-underline red-dot relative">{{ slide.title }}</p>
             <p class="text-content mt-2 max-w-[27rem]">{{ slide.description }}</p>
@@ -51,7 +51,7 @@
       class="
         view-project
         flex gap-3.5 items-center
-        px-16 py-16 !mt-0 mx-auto -translate-y-10
+        px-16 py-16 !mt-0 mx-auto lg:-translate-y-10 max-lg:translate-y-10
         w-[18.8rem] h-[8.75rem]
         text-base font-bold text-white
         bg-[#26C6D0] hover:bg-[#26C6D0]/80

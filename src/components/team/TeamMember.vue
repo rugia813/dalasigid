@@ -1,10 +1,10 @@
 <template>
-  <div class="flex relative flex-col grow mt-16 text-center tracking-[2px] max-md:mt-10">
+  <div class="flex relative flex-col grow mt-16 text-center tracking-[2px] max-md:mt-10 items-center">
     <img
       :src="member.image"
       :alt="member.name"
       loading="lazy"
-      class="object-contain mx-6 aspect-square w-[204px] max-md:mx-2.5"
+      class="object-contain mx-6 aspect-square w-[204px] max-md:mx-2.5 rounded-full overflow-clip"
     />
     <h3 class="self-center mt-10 text-xl font-bold text-white uppercase">
       {{ member.name }}
@@ -16,10 +16,9 @@
 </template>
 
 <script setup lang="ts">
-import type { TeamMemberType } from './types'
 
 interface Props {
-  member: TeamMemberType
+  member: any
 }
 
 defineProps<Props>()

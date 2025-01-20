@@ -143,6 +143,9 @@ nav {
 	border-radius: 2px;
 	transition: all 0.3s ease;
 }
+.navbar-scroll .menu-button span {
+	background-color: #585880;
+}
 
 .menu-button span:nth-child(3) {
 	width: 1.6rem;
