@@ -2,7 +2,7 @@
   <Navbar />
   <div class="flex flex-col">
     <HeroSection />
-    <AboutSection />
+    <!-- <AboutSection /> -->
     <div class="relative lg:h-[12rem]">
       <AwardsSection
         class="
