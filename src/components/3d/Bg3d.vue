@@ -88,24 +88,88 @@ function init() {
   camera.position.z = props.scale;
 
   scene = new THREE.Scene();
+  const circleGeometry = new THREE.CircleGeometry(.6, 12);
   geometry = new THREE.InstancedBufferGeometry();
-  material = new THREE.RawShaderMaterial({
-    uniforms: {
-      "map": { value: new THREE.TextureLoader().load('/statics/imgs/circle.png') },
-      "time": { value: 0.0 },
-      "uTouch": { value: null },
-      "toggle": { value: false },
-      "timeOffset": { value: 0 },
-      "rotation": { value: { x: 0.02, y: 0.02 } },
-    },
-    vertexShader: vert,
-    fragmentShader: frag,
-    depthTest: true,
-    depthWrite: true
-  });
-  
-  mesh = new THREE.Mesh(geometry, material);
-  scene.add(mesh);
+		geometry.index = circleGeometry.index;
+		geometry.attributes = circleGeometry.attributes;
+
+		const ico = new THREE.IcosahedronGeometry(1.1, 13)
+
+		const sg = new THREE.TorusKnotGeometry(
+			1,
+			10.8,
+			600,
+			20,
+			5,
+			8
+		)
+		sg.scale(.09, .09, .09)
+		const pos = sg.attributes.position
+		const icoPos = ico.attributes.position
+		const uv = sg.attributes.uv
+		// console.log('sg: ', sg);
+
+		const particleCount = vertices.length;
+		console.log(particleCount);
+
+		const icoCount = icoPos.count * 3;
+		console.log(icoCount);
+
+
+		const translateArray = new Float32Array(particleCount);
+		const icoArray = new Float32Array(particleCount);
+		const anglesArray = new Float32Array(particleCount);
+
+		for (let i = 0, i3 = 0, l = particleCount;i < l;i++, i3 += 3) {
+
+			icoArray[i3 + 0] = icoPos.array[(i3 % icoCount) + 0];
+			icoArray[i3 + 1] = icoPos.array[(i3 % icoCount) + 1];
+			icoArray[i3 + 2] = icoPos.array[(i3 % icoCount) + 2];
+		}
+
+		for (let i = 0, i3 = 0, l = particleCount;i < l;i++, i3 += 3) {
+
+			translateArray[i3 + 0] = vertices[i3 + 0];
+			translateArray[i3 + 1] = vertices[i3 + 1];
+			translateArray[i3 + 2] = vertices[i3 + 2];
+
+			anglesArray[i] = Math.random() * Math.PI;
+		}
+
+		const uvArr = new Float32Array(particleCount * 2);
+
+		for (let i = 0, i3 = 0, l = particleCount;i < l;i++, i3 += 2) {
+
+			uvArr[i3 + 0] = uv.array[i3 + 0];
+			uvArr[i3 + 1] = uv.array[i3 + 1];
+
+		}
+
+		geometry.setAttribute('translate', new THREE.InstancedBufferAttribute(translateArray, 3));
+		geometry.setAttribute('ico', new THREE.InstancedBufferAttribute(icoArray, 3));
+		geometry.setAttribute('angle', new THREE.InstancedBufferAttribute(anglesArray, 1));
+		geometry.setAttribute('aUv', new THREE.InstancedBufferAttribute(uvArr, 2));
+
+		material = new THREE.RawShaderMaterial({
+			uniforms: {
+				"map": { value: new THREE.TextureLoader().load('/statics/imgs/circle.png') },
+				"time": { value: 0.0 },
+				"uTouch": { value: null },
+				"toggle": { value: false },
+				"timeOffset": { value: 0 },
+				"rotation": { value: {x: 0.02, y: 0.02} },
+			},
+			vertexShader: vert,
+			fragmentShader: frag,
+			depthTest: true,
+			depthWrite: true
+		});
+
+		mesh = new THREE.Mesh(geometry, material);
+		mesh.scale.set(420, 420, 420);
+		mesh.position.z = 300;
+		scene.add(mesh);
+
   renderer.setSize(window.innerWidth, window.innerHeight);
   container.value?.appendChild(renderer.domElement);
 
@@ -133,7 +197,7 @@ function initTouch() {
 }
 
 function initHitArea() {
-  hitArea = new THREE.Mesh(new THREE.PlaneGeometry(1160, 950, 1, 1), new THREE.MeshBasicMaterial({ visible: debug }));
+  hitArea = new THREE.Mesh(new THREE.PlaneGeometry(1160, 950, 1, 1), new THREE.MeshBasicMaterial({ visible: debug, wireframe: true }));
   scene.add(hitArea);
 }
 
