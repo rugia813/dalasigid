@@ -1,8 +1,8 @@
 <template>
   <div class="relative w-full h-full">
-    <div class="absolute top-0 right-0 bg-gray-800 p-4 text-white rounded-lg opacity-90">
+    <div class="absolute top-1/2 right-0 bg-gray-800 p-4 text-white rounded-lg opacity-90 z-10">
       <button @click="toggleModel" class="bg-gray-700 p-2 rounded hover:bg-gray-600">Transform</button>
-      <button @click="() => { debug = !debug; init(); }" class="bg-gray-700 p-2 rounded hover:bg-gray-600">Debug</button>
+      <button @click="toggleDebug" class="bg-gray-700 p-2 rounded hover:bg-gray-600">Debug</button>
     </div>
     <div id="canvas" ref="container" className="fixed top-0 left-0 -z-10" :style="{
       backgroundImage: 'linear-gradient(170deg,#000 10%,#091833 41%,#18191d 80%)'
@@ -22,12 +22,25 @@ import Control from "./InteractiveControls.js";
 import vert from "./shaders/vert.js";
 import frag from "./shaders/frag.js";
 
-let stats: Stats;
+let stats: Stats | null = null;
 let camera: THREE.PerspectiveCamera, scene: THREE.Scene, renderer: THREE.WebGLRenderer;
-let geometry: THREE.InstancedBufferGeometry, material: THREE.RawShaderMaterial, mesh: THREE.Mesh;
+let geometry: THREE.InstancedBufferGeometry, material: THREE.RawShaderMaterial, mesh: THREE.Mesh<THREE.InstancedBufferGeometry, THREE.RawShaderMaterial>;
 let touch: TouchTexture, hitArea: THREE.Mesh;
 let control: any;
-let debug = true;
+let debug = ref(true);
+
+function toggleDebug() {
+  debug.value = !debug.value;
+  if (stats) {
+    stats.dom.style.display = debug.value ? 'block' : 'none';
+  }
+  if (hitArea) {
+    hitArea.visible = debug.value;
+  }
+  if (touch) {
+    touch.initTexture(debug.value);
+  }
+}
 let timeOrigin: number, lastFrameTime = 0;
 let active = true;
 
@@ -173,7 +186,7 @@ function init() {
   renderer.setSize(window.innerWidth, window.innerHeight);
   container.value?.appendChild(renderer.domElement);
 
-  if (debug) {
+  if (debug.value) {
     stats = new Stats();
     document.body.appendChild(stats.dom);
   }
@@ -192,24 +205,28 @@ function toggleModel() {
 }
 
 function initTouch() {
-  touch = new TouchTexture(debug);
-  mesh.material.uniforms.uTouch.value = touch.texture;
+  touch = new TouchTexture(debug.value);
+  const material = mesh.material as THREE.RawShaderMaterial;
+  material.uniforms.uTouch.value = touch.texture;
 }
 
 function initHitArea() {
-  hitArea = new THREE.Mesh(new THREE.PlaneGeometry(1160, 950, 1, 1), new THREE.MeshBasicMaterial({ visible: debug, wireframe: true }));
+  hitArea = new THREE.Mesh(
+    new THREE.PlaneGeometry(1160, 950, 1, 1),
+    new THREE.MeshBasicMaterial({ visible: debug.value, wireframe: true })
+  );
   scene.add(hitArea);
 }
 
 function addListeners() {
   control.addListener('interactive-move', onInteractiveMove);
-  control.objects.push(hitArea);
+  (control.objects as THREE.Mesh[]).push(hitArea);
   control.enable();
 }
 
 function removeListeners() {
   control.removeListener('interactive-move', onInteractiveMove);
-  control.objects = control.objects.filter(obj => obj !== hitArea);
+  control.objects = (control.objects as THREE.Mesh[]).filter((obj: THREE.Mesh) => obj !== hitArea);
   control.disable();
   active = false;
 }
@@ -243,7 +260,19 @@ function animate() {
 }
 
 function render() {
-  material.uniforms["time"].value = (performance.now() - timeOrigin) * 0.0005;
-  renderer.render(scene, camera);
+		const time = (performance.now() - timeOrigin);
+		const adjustedTime = time * 0.0005
+		material.uniforms["time"].value = adjustedTime;
+
+		// lock to 60 fps
+		if (time - lastFrameTime > 12) {
+			touch && touch.update(time)
+			lastFrameTime = time
+		}
+
+		// mesh.rotation.x = adjustedTime * 0.2;
+		// mesh.rotation.y = adjustedTime * 0.4;
+
+		renderer.render(scene, camera);
 }
 </script>
