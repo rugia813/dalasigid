@@ -2,9 +2,8 @@
 	<section class="hero-section relative h-screen mb-[5.375rem]">
 		<!-- BG -->
 		<div class="absolute h-screen overflow-hidden rounded-bl-[50px] rounded-br-[50px]">
-			<!-- <img loading="lazy" src="@/assets/BG.png" alt="Hero background" class="object-cover h-screen w-screen" />
-			<div data-vbg="https://www.youtube.com/watch?v=8_4JRK4QkqU" class="absolute "></div> -->
-			<Bg3d class="h-screen w-screen" :scale="scale" :onload="() => loading = false" />
+			<img loading="lazy" src="@/assets/BG.png" alt="Hero background" class="object-cover h-screen w-screen" />
+			<div data-vbg="https://www.youtube.com/watch?v=8_4JRK4QkqU" class="absolute "></div>
 		</div>
 
 		<!-- Title -->
@@ -38,27 +37,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
+import 'youtube-background';
+import { onMounted } from 'vue';
 import logo from '@/assets/logo.svg';
 import InlineSvg from '../components/InlineSvg.vue';
-import Bg3d from '../components/3d/Bg3d.vue';
-
-const scale = ref(1400);
-const loading = ref(true);
-
-function rescale3dModel() {
-  const bp = 858;
-  const width = Math.min(window.innerWidth, bp);
-  scale.value = 1400 + (bp - width) * 1.0;
-}
 
 onMounted(() => {
-  rescale3dModel();
-  window.addEventListener('resize', rescale3dModel);
-});
-
-onUnmounted(() => {
-  window.removeEventListener('resize', rescale3dModel);
+	// @ts-expect-error
+	const videoBackgrounds = new VideoBackgrounds('[data-vbg]');
 });
 </script>
 
